@@ -1,4 +1,4 @@
-# BillingTool
+# BillTool
 本软件用于支付宝和微信账单管理
 
 
