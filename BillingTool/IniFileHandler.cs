@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BillingTool
 {
-	public class IniFileManager
+	public class IniFileHandler
 	{
 		private string filePath;
 
-		public IniFileManager(string filePath)
+		public IniFileHandler(string filePath)
 		{
 			this.filePath = filePath;
 		}

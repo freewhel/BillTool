@@ -2,23 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace BillingTool
 {
 	public class ESourceType
 	{
 		public const string WECHAT = "微信";
-		public const string ALIPAY = "支付宝";
+		public const string ALIPAY = "alipay";
 	}
 
-	public class ExcelHander
+	public class ExcelHandler
 	{
-		private int[] weChatIndexs;
-		private int[] aliPayIndexs;
-		private int[] targetIndexs;
-		private string[] targetHead;
+		private readonly int[] weChatIndexs = { 1, 6, 5, 3, 4, 8 };
+		private readonly int[] aliPayIndexs = { 5, 10, 11, 8, 9, 16 };
+		private readonly int[] targetIndexs = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		private readonly string[] targetHead = { "付款时间", "金额（元）", "收/支", "交易对方", "收支类型", "商品名称", "交易状态", "支付方式" };
 		private Dictionary<string, int[]> sourceTypes;
 		private Dictionary<string, List<string>> ruleDict = new Dictionary<string, List<string>>();
+		private string sourceType = string.Empty;
 
 		private ResultMessage resultMessage;
 
@@ -39,7 +41,7 @@ namespace BillingTool
 		private string ruleFilePath = $"{Environment.CurrentDirectory}\\rule.ini";
 
 
-		public ExcelHander(string sourcePath, string targetPath)
+		public ExcelHandler(string sourcePath, string targetPath)
 		{
 			this.sourcePath = sourcePath;
 			this.targetPath = targetPath;
@@ -50,10 +52,10 @@ namespace BillingTool
 		{
 			//申明非商用
 			ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-			weChatIndexs = new int[] { 1, 6, 5, 3, 4, 8 };
-			aliPayIndexs = new int[] { 5, 10, 11, 8, 9, 16 };
-			targetIndexs = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-			targetHead = new string[] { "付款时间", "金额（元）", "收/支", "交易对方", "收支类型", "商品名称", "交易状态", "支付方式" };
+			//weChatIndexs = new int[] { 1, 6, 5, 3, 4, 8 };
+			//aliPayIndexs = new int[] { 5, 10, 11, 8, 9, 16 };
+			//targetIndexs = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+			//targetHead = new string[] { "付款时间", "金额（元）", "收/支", "交易对方", "收支类型", "商品名称", "交易状态", "支付方式" };
 			resultMessage = new ResultMessage();
 			sourceTypes = new Dictionary<string, int[]>
 			{
@@ -71,7 +73,7 @@ namespace BillingTool
 				{
 					File.WriteAllText(ruleFilePath, "");
 				}
-				IniFileManager iniFileManager = new IniFileManager(ruleFilePath);
+				IniFileHandler iniFileManager = new IniFileHandler(ruleFilePath);
 				Dictionary<string, List<string>> temp = iniFileManager.GetSectionsKeys();
 
 				if (temp.Count > 0)
@@ -87,38 +89,91 @@ namespace BillingTool
 
 		}
 
-		public ResultMessage SoucerToTotalBill()
+		private bool LoadBills()
 		{
-			string sourceType = string.Empty;
-			resultMessage.IsDone = true;
-			DateTime startTime = DateTime.Now;
+			bool result = false;
 			try
 			{
-				sourceExcel = new ExcelPackage(new FileInfo(sourcePath));
+
+				//确定数据文件类型
+				if (sourcePath.Contains(ESourceType.ALIPAY))
+				{
+					sourceType = ESourceType.ALIPAY;
+				}
+				else if (sourcePath.Contains(ESourceType.WECHAT))
+				{
+					sourceType = ESourceType.WECHAT;
+				}
+				else
+				{
+					resultMessage.IsDone = false;
+					resultMessage.Message = "数据文件类型检测错误，请检查数据文件内容是否正确！";
+					return result;
+				}
+
+
+				if (!sourcePath.EndsWith("xlsx"))
+				{
+					sourceExcel = LoadCsv(sourcePath, sourceType);
+					sourceSheet1 = sourceExcel.Workbook.Worksheets[0];
+				}
+				else
+				{
+					sourceExcel = new ExcelPackage(new FileInfo(sourcePath));
+					sourceSheet1 = sourceExcel.Workbook.Worksheets[0];
+				}
 				targetExcel = new ExcelPackage(new FileInfo(targetPath));
-				sourceSheet1 = sourceExcel.Workbook.Worksheets[0];
 				targetSheet1 = targetExcel.Workbook.Worksheets[0];
+				result = true;
 			}
 			catch (Exception e)
 			{
 				resultMessage.IsDone = false;
 				resultMessage.Message = e.Message;
-				return resultMessage;
+				result = false;
+			}
+			return result;
+		}
+
+
+		private ExcelPackage LoadCsv(string filePath, string type)
+		{
+
+			string fileContext = File.ReadAllText(filePath, Encoding.GetEncoding("GB2312"));
+
+			ExcelTextFormat format = new ExcelTextFormat();
+			switch (type)
+			{
+				case ESourceType.ALIPAY:
+
+					break;
+				case ESourceType.WECHAT:
+					fileContext = fileContext.Replace("¥", "");
+					format.TextQualifier = '\"';
+					break;
+				default:
+					break;
 			}
 
-			//确定数据文件类型
-			if (sourceSheet1.Cells[1, 1].Value.ToString().IndexOf(ESourceType.ALIPAY) > -1)
+
+			ExcelPackage excelPackage = new ExcelPackage();
+
+			ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+
+			worksheet.Cells[1, 1].LoadFromText(fileContext, format);
+			return excelPackage;
+		}
+
+
+		public ResultMessage SoucerToTargetBill()
+		{
+
+			resultMessage.IsDone = true;
+			DateTime startTime = DateTime.Now;
+
+			if (!LoadBills())
 			{
-				sourceType = ESourceType.ALIPAY;
-			}
-			else if (sourceSheet1.Cells[1, 1].Value.ToString().IndexOf(ESourceType.WECHAT) > -1)
-			{
-				sourceType = ESourceType.WECHAT;
-			}
-			else
-			{
-				resultMessage.IsDone = false;
-				resultMessage.Message = "数据文件类型检测错误，请检查数据文件内容是否正确！";
+				return resultMessage;
 			}
 
 			for (int i = 1; i <= targetSheet1.Dimension.End.Column; i++)
@@ -197,8 +252,8 @@ namespace BillingTool
 						= sourceSheet1.Cells[readRow, sourceTypeIndexs[1]].Value;
 				}
 
-				string commodityName = targetSheet1.Cells[insertRow, targetIndexs[5]].Value.ToString() + 
-					                   targetSheet1.Cells[insertRow, targetIndexs[3]].Value.ToString();
+				string commodityName = targetSheet1.Cells[insertRow, targetIndexs[5]].Value.ToString() +
+									   targetSheet1.Cells[insertRow, targetIndexs[3]].Value.ToString();
 				targetSheet1.Cells[insertRow, targetIndexs[4]].Value = GetRECategory(commodityName);
 				insertRow++;
 			}

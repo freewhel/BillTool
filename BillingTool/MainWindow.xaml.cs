@@ -21,8 +21,8 @@ namespace BillingTool
 			string sourcePath = sourceTextBox.Text;
 			string targetPath = targeTextBox.Text;
 
-			ExcelHander excelHander = new ExcelHander(sourcePath, targetPath);
-			ResultMessage result = excelHander.SoucerToTotalBill();
+			ExcelHandler excelHander = new ExcelHandler(sourcePath, targetPath);
+			ResultMessage result = excelHander.SoucerToTargetBill();
 			if (result.IsDone)
 			{
 				resultTextBlock.Text = $"转换成功\r\n" +

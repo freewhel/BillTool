@@ -81,8 +81,8 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EPPlus, Version=6.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.6.2.0\lib\net462\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=6.2.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.7\lib\net462\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
@@ -125,8 +125,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ExcelHander.cs" />
-    <Compile Include="IniFileManager.cs" />
+    <Compile Include="ExcelHandler.cs" />
+    <Compile Include="IniFileHandler.cs" />
     <Compile Include="RECategory.cs" />
     <Compile Include="ResultMessage.cs" />
     <Compile Include="Services\IExcelService.cs" />

@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1001C8E1AAE7BFFC63B11C190546D342"
+        "OwnerKey" = "8:_4C743F642106418DAA68170FFDD2F0D0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_14CC5481D6A37FFB73C1A4FC98C2063F"
         "OwnerKey" = "8:_AB3D140D7F2B59ED054945A4557FFBE9"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,12 +34,6 @@
         "Entry"
         {
         "MsmKey" = "8:_14CC5481D6A37FFB73C1A4FC98C2063F"
-        "OwnerKey" = "8:_4C743F642106418DAA68170FFDD2F0D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_28DD3825EDE05997BB70E7707E04B8B3"
         "OwnerKey" = "8:_4C743F642106418DAA68170FFDD2F0D0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -70,7 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_786A9E8E2C6EE1FA1C9A4597235152B6"
-        "OwnerKey" = "8:_28DD3825EDE05997BB70E7707E04B8B3"
+        "OwnerKey" = "8:_1001C8E1AAE7BFFC63B11C190546D342"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_8784D101D44330811B1C03C7ABEB7D42"
-        "OwnerKey" = "8:_28DD3825EDE05997BB70E7707E04B8B3"
+        "OwnerKey" = "8:_1001C8E1AAE7BFFC63B11C190546D342"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_99691C1DC4AC4713982A9DBDE3E8EDA7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AB3D140D7F2B59ED054945A4557FFBE9"
         "OwnerKey" = "8:_4C743F642106418DAA68170FFDD2F0D0"
         "MsmSig" = "8:_UNDEFINED"
@@ -106,7 +112,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C584384CC114CEFC6CFABE8C2AD43A4F"
-        "OwnerKey" = "8:_28DD3825EDE05997BB70E7707E04B8B3"
+        "OwnerKey" = "8:_1001C8E1AAE7BFFC63B11C190546D342"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,7 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_28DD3825EDE05997BB70E7707E04B8B3"
+        "OwnerKey" = "8:_1001C8E1AAE7BFFC63B11C190546D342"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -238,6 +244,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -299,20 +313,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14CC5481D6A37FFB73C1A4FC98C2063F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1001C8E1AAE7BFFC63B11C190546D342"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:EPPlus, Version=6.2.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_14CC5481D6A37FFB73C1A4FC98C2063F"
+                    "_1001C8E1AAE7BFFC63B11C190546D342"
                     {
-                    "Name" = "8:Microsoft.Xaml.Behaviors.dll"
+                    "Name" = "8:EPPlus.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.Xaml.Behaviors.dll"
+            "SourcePath" = "8:EPPlus.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
@@ -330,20 +344,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_28DD3825EDE05997BB70E7707E04B8B3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14CC5481D6A37FFB73C1A4FC98C2063F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EPPlus, Version=6.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_28DD3825EDE05997BB70E7707E04B8B3"
+                    "_14CC5481D6A37FFB73C1A4FC98C2063F"
                     {
-                    "Name" = "8:EPPlus.dll"
+                    "Name" = "8:Microsoft.Xaml.Behaviors.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:EPPlus.dll"
+            "SourcePath" = "8:Microsoft.Xaml.Behaviors.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
@@ -492,6 +506,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_99691C1DC4AC4713982A9DBDE3E8EDA7"
+            {
+            "SourcePath" = "8:..\\BillingTool\\bin\\Debug\\msiexec.exe"
+            "TargetName" = "8:msiexec.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AB3D140D7F2B59ED054945A4557FFBE9"
@@ -643,15 +677,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BillingTool"
-        "ProductCode" = "8:{A80969E9-D26A-47B3-AB82-8221B9B406D0}"
-        "PackageCode" = "8:{E2901BD6-8040-4D7A-8F2D-1F85B790F2D2}"
+        "ProductCode" = "8:{75695ACA-900D-48AC-B49A-8DD915FFD03C}"
+        "PackageCode" = "8:{28D60A3D-8774-4F6B-94A6-B6D048D66255}"
         "UpgradeCode" = "8:{841CBCCB-AC67-477A-B274-D84C920D635D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "InstallAllUsers" = "11:TRUE"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:BillingTool"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -776,6 +810,20 @@
             "Folder" = "8:_A99775B560894D83A23A7368660F14B7"
             "WorkingFolder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
             "Icon" = "8:_4E9B2BCBAC494B52B0065A4E0DBFAA5A"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A6B6CF332B0B4B20B92D4C8B1C776DF8"
+            {
+            "Name" = "8:uninstall.exe"
+            "Arguments" = "8:/x {75695ACA-900D-48AC-B49A-8DD915FFD03C}"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_99691C1DC4AC4713982A9DBDE3E8EDA7"
+            "Folder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
+            "WorkingFolder" = "8:_0CE7FEB1E5754FFB935A69AABD25A2F2"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
