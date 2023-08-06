@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillTool", "BillTool\BillTool.csproj", "{4D05EEF1-1CB3-4F32-80B5-C06797433471}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{40FDFF31-EEB4-4E67-9704-79EAD4437481}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D05EEF1-1CB3-4F32-80B5-C06797433471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D05EEF1-1CB3-4F32-80B5-C06797433471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D05EEF1-1CB3-4F32-80B5-C06797433471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D05EEF1-1CB3-4F32-80B5-C06797433471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FDFF31-EEB4-4E67-9704-79EAD4437481}.Debug|Any CPU.ActiveCfg = Debug
+		{40FDFF31-EEB4-4E67-9704-79EAD4437481}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84C5ACAE-5813-468D-AA01-DD2C53B45D48}
+	EndGlobalSection
+EndGlobal
